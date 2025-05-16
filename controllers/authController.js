@@ -135,6 +135,10 @@ exports.sendOtp = catchAsyncError(async (req, res, next) => {
     { new: true }
   );
 
+  if (!user) {
+    return next(new AppError(404, "No user found with this email id"));
+  }
+
   console.log({ smsText });
   const token = jwtToken(user._id);
 
