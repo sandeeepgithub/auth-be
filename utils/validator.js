@@ -24,6 +24,8 @@ const validateSignup = validator.body(
         "string.min": "Password must be at least 8 characters long.",
         "string.max": "Password must be at most 15 characters long.",
         "any.required": "Password is required.",
+        "string.pattern.base":
+          "Password must contain at least one digit, one uppercase letter, one lowercase letter, and one special character, with no spaces.",
       }),
 
     firstName: Joi.string().min(3).max(72).required().messages({
@@ -84,6 +86,8 @@ const validateSignin = validator.body(
       "string.min": "Password must be at least 6 characters long.",
       "string.max": "Password must be at most 20 characters long.",
       "any.required": "Password is required.",
+      "string.pattern.base":
+        "Password must contain at least one digit, one uppercase letter, one lowercase letter, and one special character, with no spaces.",
     }),
   })
 );
